@@ -1,0 +1,37 @@
+#tabuleiro {
+    display: grid;
+    grid-template-columns: 3.82vh repeat(7, 10.22vh);
+    grid-template-rows: 3.82vh repeat(7, 10.22vh);
+    height: 72vh;
+    width: 72vh;
+    margin-left: 65vh;
+    margin-top: 5vh;
+    background-image: url(../img/board.png);
+    background-size: contain;
+}
+
+.pecas {
+    height: 5vh;
+    width: 5vh;
+    border-radius: 50%;
+    border: 2px solid blue;
+    position: fixed;
+}
+
+body {
+    background-color: beige;
+}
+
+#title {
+    display: flex;
+    font-family: sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+.posicaoTabuleiro {
+    height: 3vh;
+    width: 3vh;
+    border-radius: 50%;
+    background-color: rgba(250, 128, 114, 0.377);
+}
