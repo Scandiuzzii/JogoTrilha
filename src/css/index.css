@@ -10,6 +10,14 @@
     background-size: contain;
 }
 
+.pecas {
+    height: 5vh;
+    width: 5vh;
+    border-radius: 50%;
+    border: 2px solid blue;
+    position: fixed;
+}
+
 body {
     background-color: beige;
 }
