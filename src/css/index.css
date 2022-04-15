@@ -1,0 +1,17 @@
+#tabuleiro {
+    display: grid;
+    grid-template-columns: 3.82vh repeat(7, 10.22vh);
+    grid-template-rows: 3.82vh repeat(7, 10.22vh);
+    height: 72vh;
+    width: 72vh;
+    margin-left: 20vh;
+    background-image: url(../img/board.png);
+    background-size: contain;
+}
+
+.posicaoTabuleiro {
+    height: 3vh;
+    width: 3vh;
+    border-radius: 50%;
+    background-color: rgba(250,128,114, 0.377);
+}
