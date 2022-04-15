@@ -1,9 +1,10 @@
 const tabuleiro = document.getElementById('tabuleiro')
 
-class Tabuleiro {
+class Tabuleiro  {
     constructor (id) {
         this.id = id
         this.tabuleiro = []
+        this.players = new Player()
     }
 
     createTabuleiro(){
@@ -16,6 +17,7 @@ class Tabuleiro {
             tabuleiro.appendChild(posicaoTabuleiro)
             // could be optimized to add all children at once
         });
+        this.players.createPlayers(0)
     }
 
 }
