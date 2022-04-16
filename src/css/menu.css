@@ -186,7 +186,7 @@ body {
     width: 137px;
     height: 41px;
     left: calc(50% - 140px/2 - 107.5px);
-    top: calc(50% - 130px/2 - 172.5px);
+    top: calc(50% - 80px/2 - 172.5px);
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
@@ -201,7 +201,7 @@ body {
     width: 137px;
     height: 41px;
     left: calc(50% - -340px/2 - 107.5px);
-    top: calc(50% - 130px/2 - 172.5px);
+    top: calc(50% - 80px/2 - 172.5px);
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
