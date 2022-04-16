@@ -1,27 +1,26 @@
 class Player {
-    constructor() {
-        this.player1 = {
-            pecas: []
+    constructor(id,name,color) {
+        this.player= {
+            id:id,
+            pecas: [],
+            score:0,
+            name: name,
+            color:color
         };
-
-        this.player2 = {
-            pecas: []
-        };
+        this.createPlayers(0);
     }
 
     createPlayers(id){
-        if (id <= 17){
-            let player = (9 - this.player1.pecas.length) / (9 - this.player2.pecas.length ) > Math.random() ? 1 : 2;
+        if (id <= 8){
+            let token = new Pecas(id+'-'+this.player.id, this.player);
 
-            let token = new Pecas(id, player);
-            
-            this[player ==  1 ? 'player1' : 'player2'].pecas.push(token);
+            this.player.pecas.push(token);
             this.createPlayers(++id);
         }
     }
 
     findById(id){
-        return this.player1.pecas.concat(this.player2.pecas).find(({ e }) => e.id === id)
+        return this.player.pecas.find(({ e }) => e.id === id)
     }
 
 }
