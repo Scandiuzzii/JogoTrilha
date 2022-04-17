@@ -5,6 +5,8 @@ class Pecas {
         this.draggedToken = null;
         this.closeNode = null;
         this.flyable = false;
+        this.position = null;
+        this.draggedToken = null;
         this.createPecas();
     }
 

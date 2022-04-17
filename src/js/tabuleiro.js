@@ -1,11 +1,10 @@
 const tabuleiro = document.getElementById('tabuleiro')
 
+let draggedToken =null
 class Tabuleiro {
     constructor (player1,player2) {
         this.tabuleiro = [];
 
-        this.position = null;
-        this.draggedToken = null;
         this.closeNode = null;
         this.flyable = false;
 
@@ -41,25 +40,27 @@ class Tabuleiro {
 
     monitorarMovimento(){
         document.addEventListener('mousedown',(event)=>{
-            if(event.target.classList.contains('pecas'))
+            if(event.target.classList.contains('pecas')){
                 document.addEventListener('mousemove', this.follow,false);
+                console.log(draggedToken)
+            }
         },false);
     
         document.addEventListener('mouseup',(event)=>{
             document.removeEventListener('mousemove', this.follow);
     
-            if(!this.draggedToken){
+            if(!draggedToken){
                 return
             }
             
             this.findColor(event.clientX, event.clientY);
             
             if(this.closeNode){
-                this.placePecaNode(this.draggedToken.id,this.closeNode)
-                this.place(this.closeNode)
+                this.placePecaNode(draggedToken.id,this.closeNode)
+                this.place(this.closeNode,draggedToken.id)
             }
     
-            this.draggedToken = null;
+            draggedToken = null;
             this.closeNode = null;
     
         },false);
@@ -69,43 +70,44 @@ class Tabuleiro {
         let token = document.getElementById(peca)
         let node = document.getElementById(nodeid)
 
-        x = node.getBoundingClientRect().x + node.clientHeight / 2 - token.clientHeight / 2
-        y = node.getBoundingClientRect().y + node.clientHeight / 2 - token.clientHeight / 2
+        let x = node.getBoundingClientRect().x + node.clientHeight / 2 - token.clientHeight / 2
+        let y = node.getBoundingClientRect().y + node.clientHeight / 2 - token.clientHeight / 2
+        
         token.style.left = x + 'px'
         token.style.top = y + 'px'
     }
 
-    place(position){
-        let oldNode = this.findByIdTabuleiro(this.position)
+    place(position,id){
+        let peca = this.findByIdPecas(id)
+        let oldNode = this.findByIdTabuleiro(peca.position)
         if(oldNode) oldNode.isOccupied = false
         let newNode = this.findByIdTabuleiro(position)
         newNode.isOccupied = true 
-        this.position = position
+        peca.position = position
     }
 
     follow(e){
         let delX = 0;
         let delY = 0;
 
-        if(!this.draggedToken && e.target.classList.contains('pecas')){
-            this.draggedToken = e.target;
-            delX = this.draggedToken.getBoundingClientRect().x - e.clientX;
-            delY = this.draggedToken.getBoundingClientRect().y - e.clientY;
+        if(!draggedToken && e.target.classList.contains('pecas')){
+            draggedToken = e.target;
+            delX = draggedToken.getBoundingClientRect().x - e.clientX;
+            delY = draggedToken.getBoundingClientRect().y - e.clientY;
         }
 
         let x = e.clientX;
         let y = e.clientY;
 
-        this.draggedToken.style.left = x + delX + 'px';
-        this.draggedToken.style.top = y + delY + 'px';
+        draggedToken.style.left = x + delX + 'px';
+        draggedToken.style.top = y + delY + 'px';
 
         this.findColor(x,y);
     }
 
     findColor(x,y){
-        let {closestNode, minDistance} = this.getAvailableNodesForToken()
-        .reduce(({ closestNode, minDistance }, node) => {
-            nodePosition = document.getElementById(node.id).getBoundingClientRect()
+        let {closestNode, minDistance} = this.getAvailableNodesForToken().reduce(({ closestNode, minDistance }, node) => {
+            let nodePosition = document.getElementById(node.id).getBoundingClientRect()
             let distance = Math.sqrt( ( x - nodePosition.x )** 2 + 
                                         ( y - nodePosition.y )** 2 )
             if (distance < minDistance){
@@ -150,8 +152,15 @@ class Tabuleiro {
         return this.tabuleiro.find(({ e }) => e.id === id)
     }
 
+    findByIdPecas(id){
+        return this.players1.player.peca.concat(this.players2.player.peca).find(e=>e.id == id)
+    }
+
     findUnoccupied(){
-        return this.tabuleiro.find(({ e }) => !e.isOccupied)
+        return this.tabuleiro.map(e => {
+            if(!e.isOccupied)
+                return e;
+        })
     }
 
 }
