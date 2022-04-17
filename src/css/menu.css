@@ -97,6 +97,19 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.blue2 {
+    position: absolute;
+    width: 28px;
+    height: 29px;
+    left: 330px;
+    top: 120px;
+    background: #4B91FA;
+    border-radius: 50%;
+    opacity: 0.8;
+    border: 1px solid #4B91FA;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 
 .green2 {
     position: absolute;
@@ -168,7 +181,7 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.player1 {
+#player1 {
     position: absolute;
     width: 137px;
     height: 41px;
