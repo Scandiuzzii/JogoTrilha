@@ -7,7 +7,7 @@ class Player {
             name: name,
             color:color
         };
-        this.createPlayers(0);
+        // this.createPlayers(0);
     }
 
     createPlayers(id){

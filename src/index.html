@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Jogo Trilha JS</title>
     <link rel="stylesheet" href="css/menu.css">
 </head>
 
@@ -14,27 +14,27 @@
     <div id="bloco">
         <h4 id="player1">Player1</h4>
         <h4 id="player2">Player2</h4>
-        <input type="button" id="blue" onclick="console.log('blue')">
-        <input type="button" id="green" onclick="console.log('green')">
-        <input type="button" id="red" onclick="console.log('red')">
-        <input type="button" id="yellow" onclick="console.log('yellow')">
-        <input type="button" id="roxo" onclick="console.log('roxo')">
-        <input type="button" id="aqua" onclick="console.log('aqua')">
+        <input type="button" id="blue"   class="blue" onclick="changeColor('blue',1)">
+        <input type="button" id="green"  class="green" onclick="changeColor('green',1)">
+        <input type="button" id="red"    class="red" onclick="changeColor('red',1)">
+        <input type="button" id="yellow" class="yellow" onclick="changeColor('yellow',1)">
+        <input type="button" id="roxo"   class="roxo" onclick="changeColor('roxo',1)">
+        <input type="button" id="aqua"   class="aqua" onclick="changeColor('aqua',1)">
 
-        <input type="button" id="blue2" onclick="console.log('blue')">
-        <input type="button" id="green2" onclick="console.log('green')">
-        <input type="button" id="red2" onclick="console.log('red')">
-        <input type="button" id="yellow2" onclick="console.log('yellow')">
-        <input type="button" id="roxo2" onclick="console.log('roxo')">
-        <input type="button" id="aqua2" onclick="console.log('aqua')">
+        <input type="button" id="blue2"   class="blue2"  onclick="changeColor('blue',2)">
+        <input type="button" id="green2"  class="green2"  onclick="changeColor('green',2)">
+        <input type="button" id="red2"    class="red2"  onclick="changeColor('red',2)">
+        <input type="button" id="yellow2" class="yellow2"  onclick="changeColor('yellow',2)">
+        <input type="button" id="roxo2"   class="roxo2"  onclick="changeColor('roxo',2)">
+        <input type="button" id="aqua2"   class="aqua2"  onclick="changeColor('aqua',2)">
+
         <div id="linha"></div>
         <h4 id="player2_1">Player1</h4>
         <h4 id="player2_2">Player2</h4>
         <div id="cores1"></div>
         <div id="cores2"></div>
-        <input type="button" id="selecionar1" onclick="console.log('selecionar 1')" value="Selecionar">
-        <input type="button" id="selecionar2" onclick="console.log('selecionar 2')" value="Selecionar">
-        <input type="button" id="start" onclick="console.log('start 2')" value="Start">
+
+        <input type="button" href="#" id="start" onclick="startGame()" value="Start" />
 
     </div>
 

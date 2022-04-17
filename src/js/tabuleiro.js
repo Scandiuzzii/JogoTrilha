@@ -36,6 +36,8 @@ class Tabuleiro {
                 }
             }
         }
+        this.players1.createPlayers(0);
+        this.players2.createPlayers(0);
     }
 
     monitorarMovimento(){
