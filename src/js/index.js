@@ -1,16 +1,8 @@
-const Tabuleiro_ = new Tabuleiro();
+const player1 = new Player(1,'player1','')
+const player2 = new Player(2,'player2','')
 
-for (let ring = 1; ring <= 3; ring++) {
-    for (let x = 0; x <= 2; x++) {
-        for (let y = 0; y <= 2; y++) {
-            if(x * y === 1) continue
-            Tabuleiro_.tabuleiro.push({
-                id: '' + ring + x + y,
-                isOccupied: false
-            })
-            
-        }
-    }
-}
+const Tabuleiro_ = new Tabuleiro(player1,player2);
 
-Tabuleiro_.createTabuleiro()
+Tabuleiro_.createTabuleiro();
+Tabuleiro_.monitorarMovimento();
+
