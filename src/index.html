@@ -3,19 +3,45 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Jogo Trilha JS</title>
-    <link rel="stylesheet" href="css/index.css">
-
+    <link rel="stylesheet" href="css/menu.css">
 </head>
 
 <body>
-    <h1 id="title">Jogo Trilha </h1>
-    <div id="tabuleiro"> </div>
+    <h1 id="titleMenu"></h1>
+    <div id="bloco">
+        <h4 id="player1">Player1</h4>
+        <h4 id="player2">Player2</h4>
+        <input type="button" id="blue"   class="blue" onclick="changeColor('blue',1)">
+        <input type="button" id="green"  class="green" onclick="changeColor('green',1)">
+        <input type="button" id="red"    class="red" onclick="changeColor('red',1)">
+        <input type="button" id="yellow" class="yellow" onclick="changeColor('yellow',1)">
+        <input type="button" id="roxo"   class="roxo" onclick="changeColor('roxo',1)">
+        <input type="button" id="aqua"   class="aqua" onclick="changeColor('aqua',1)">
 
+        <input type="button" id="blue2"   class="blue2"  onclick="changeColor('blue',2)">
+        <input type="button" id="green2"  class="green2"  onclick="changeColor('green',2)">
+        <input type="button" id="red2"    class="red2"  onclick="changeColor('red',2)">
+        <input type="button" id="yellow2" class="yellow2"  onclick="changeColor('yellow',2)">
+        <input type="button" id="roxo2"   class="roxo2"  onclick="changeColor('roxo',2)">
+        <input type="button" id="aqua2"   class="aqua2"  onclick="changeColor('aqua',2)">
+
+        <div id="linha"></div>
+        <h4 id="player2_1">Player1</h4>
+        <h4 id="player2_2">Player2</h4>
+        <div id="cores1"></div>
+        <div id="cores2"></div>
+
+        <input type="button" href="#" id="start" onclick="startGame()" value="Start" />
+
+    </div>
+
+    <script referrerpolicy="same-origin" src="js/tabuleiro.js"></script>
     <script referrerpolicy="same-origin" src="js/pecas.js"></script>
     <script referrerpolicy="same-origin" src="js/player.js"></script>
-    <script referrerpolicy="same-origin" src="js/tabuleiro.js"></script>
     <script referrerpolicy="same-origin" src="js/index.js"></script>
 </body>
-</html
+
+</html>

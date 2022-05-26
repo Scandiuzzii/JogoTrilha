@@ -29,6 +29,117 @@ body {
     align-items: center;
 }
 
+#placar {
+    position: absolute;
+    width: 262px;
+    height: 97px;
+    left: calc(50% - 262px/2);
+    top: 800px;
+    background: #FEFFE1;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+}
+
+#linha {
+    position: absolute;
+    width: 97px;
+    height: 0px;
+    right: 83px;
+    top: 48px;
+    border: 1px solid #000000;
+    transform: rotate(90deg);
+}
+
+#placar1 {
+    position: absolute;
+    width: 60px;
+    height: 58px;
+    right: 70px;
+    left: 40px;
+    top: -9px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    color: #000000;
+}
+
+#placar2 {
+    position: absolute;
+    width: 60px;
+    height: 58px;
+    right: 60px;
+    left: 160px;
+    top: -9px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    color: #000000;
+}
+
+#player1 {
+    position: absolute;
+    width: 137px;
+    height: 41px;
+    left: -180px;
+    top: -5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    color: #000000;
+}
+
+#player2 {
+    position: absolute;
+    width: 137px;
+    height: 41px;
+    left: 290px;
+    top: -5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    color: #000000;
+}
+
+#cores1 {
+    position: absolute;
+    width: 28px;
+    height: 29px;
+    left: -125px;
+    top: 90px;
+    background: #29E655;
+    border-radius: 50%;
+    opacity: 0.8;
+    border: 1px solid #29E655;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#cores2 {
+    position: absolute;
+    width: 28px;
+    height: 29px;
+    left: 345px;
+    top: 90px;
+    background: #4B91FA;
+    border-radius: 50%;
+    opacity: 0.8;
+    border: 1px solid #4B91FA;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 .posicaoTabuleiro {
     height: 3vh;
     width: 3vh;
