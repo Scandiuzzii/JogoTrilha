@@ -1,3 +1,29 @@
+<template>
+    <div>
+        <h1 id="title">Jogo Trilha </h1>
+        <div id="tabuleiro">
+            <div id="placar">
+                <div id="resultado">
+                    <h4 id="placar1">1</h4>
+                    <h4 id="placar2">3</h4>
+                    <h4 id="player1">Player1</h4>
+                    <h4 id="player2">Player2</h4>
+                    <!-- Limite de 11 caractere -->
+                    <div id="cores1"></div>
+                    <div id="cores2"></div>
+                </div>
+                <div id="linha"></div>
+            </div>
+        </div>
+
+    </div>
+</template>
+<script>
+export default {
+    
+}
+</script>
+<style>
 #tabuleiro {
     display: grid;
     grid-template-columns: 3.82vh repeat(7, 10.22vh);
@@ -146,3 +172,4 @@ body {
     border-radius: 50%;
     background-color: rgba(250, 128, 114, 0.377);
 }
+</style>
