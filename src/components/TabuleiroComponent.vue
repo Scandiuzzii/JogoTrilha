@@ -20,7 +20,7 @@
 </template>
 <script>
 export default {
-    
+  name: 'TabuleiroComponent'
 }
 </script>
 <style>

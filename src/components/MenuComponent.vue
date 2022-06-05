@@ -2,21 +2,82 @@
   <div>
     <h1 id="titleMenu"></h1>
     <div id="bloco">
-      <h4 id="player1">Player1</h4>
-      <h4 id="player2">Player2</h4>
-      <input type="button" id="blue"   class="blue" onclick="changeColor('blue',1)">
-        <input type="button" id="green"  class="green" onclick="changeColor('green',1)">
-        <input type="button" id="red"    class="red" onclick="changeColor('red',1)">
-        <input type="button" id="yellow" class="yellow" onclick="changeColor('yellow',1)">
-        <input type="button" id="roxo"   class="roxo" onclick="changeColor('roxo',1)">
-        <input type="button" id="aqua"   class="aqua" onclick="changeColor('aqua',1)">
+      <h4 id="player1">{{player1}}</h4>
+      <h4 id="player2">{{player2}}</h4>
 
-        <input type="button" id="blue2"   class="blue2"  onclick="changeColor('blue',2)">
-        <input type="button" id="green2"  class="green2"  onclick="changeColor('green',2)">
-        <input type="button" id="red2"    class="red2"  onclick="changeColor('red',2)">
-        <input type="button" id="yellow2" class="yellow2"  onclick="changeColor('yellow',2)">
-        <input type="button" id="roxo2"   class="roxo2"  onclick="changeColor('roxo',2)">
-        <input type="button" id="aqua2"   class="aqua2"  onclick="changeColor('aqua',2)">
+      <input
+        type="button"
+        id="blue"
+        class="blue"
+        onclick="changeColor('blue',1)"
+      />
+      <input
+        type="button"
+        id="green"
+        class="green"
+        onclick="changeColor('green',1)"
+      />
+      <input
+        type="button"
+        id="red"
+        class="red"
+        onclick="changeColor('red',1)"
+      />
+      <input
+        type="button"
+        id="yellow"
+        class="yellow"
+        onclick="changeColor('yellow',1)"
+      />
+      <input
+        type="button"
+        id="roxo"
+        class="roxo"
+        onclick="changeColor('roxo',1)"
+      />
+      <input
+        type="button"
+        id="aqua"
+        class="aqua"
+        onclick="changeColor('aqua',1)"
+      />
+
+      <input
+        type="button"
+        id="blue2"
+        class="blue2"
+        onclick="changeColor('blue',2)"
+      />
+      <input
+        type="button"
+        id="green2"
+        class="green2"
+        onclick="changeColor('green',2)"
+      />
+      <input
+        type="button"
+        id="red2"
+        class="red2"
+        onclick="changeColor('red',2)"
+      />
+      <input
+        type="button"
+        id="yellow2"
+        class="yellow2"
+        onclick="changeColor('yellow',2)"
+      />
+      <input
+        type="button"
+        id="roxo2"
+        class="roxo2"
+        onclick="changeColor('roxo',2)"
+      />
+      <input
+        type="button"
+        id="aqua2"
+        class="aqua2"
+        onclick="changeColor('aqua',2)"
+      />
 
       <div id="linha"></div>
       <h4 id="player2_1">Player1</h4>
@@ -25,20 +86,28 @@
       <div id="cores2"></div>
 
       <!-- <input type="button" to="/about" id="start" value="Start" /> -->
-      <router-link id="start" to="/about">Start</router-link>
+      <router-link id="start" to="/jogo">Start</router-link>
     </div>
-
-    <!-- <script referrerpolicy="same-origin" src="js/tabuleiro.js"></script>
-    <script referrerpolicy="same-origin" src="js/pecas.js"></script>
-    <script referrerpolicy="same-origin" src="js/player.js"></script>
-    <script referrerpolicy="same-origin" src="js/index.js"></script> -->
   </div>
 </template>
 <script>
-
 export default {
-  name: 'MenuTeste',
-  components: {
+  name: 'MenuComponent',
+  components: {},
+  data() {
+    return {
+      player1: "Player1",
+      player2: "Player2",
+    };
+  },
+  methods: {
+    changeColor(color, player) {
+      if (player == 1) {
+        document.getElementById("cores1").style.backgroundColor = color;
+      } else {
+        document.getElementById("cores2").style.backgroundColor = color;
+      }
+    }
   }
 }
 </script>

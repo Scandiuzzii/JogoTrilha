@@ -7,7 +7,7 @@
 
 <script>
 // @ is an alias to /src
-import MenuTeste from '@/components/MenuTeste.vue'
+import MenuTeste from '@/components/MenuComponent.vue'
 
 export default {
   name: 'HomeView',
