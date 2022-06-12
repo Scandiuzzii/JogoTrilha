@@ -5,7 +5,7 @@
     <router-link to="/menu">Menu</router-link>
   </nav>
    -->
-  <router-view/>
+  <router-view />
 </template>
 
 <style>
