@@ -1,15 +1,15 @@
 const tabuleiro = document.getElementById('tabuleiro')
 
-let draggedToken =null
 class Tabuleiro {
     constructor (player1,player2) {
         this.tabuleiro = [];
 
-        this.closeNode = null;
-        this.flyable = false;
+        this.closestNodeId = null;
 
         this.players1 = player1;
         this.players2 = player2;
+
+        this.draggedToken = null;
 
     }
 
@@ -38,37 +38,36 @@ class Tabuleiro {
         }
     }
 
+    
     monitorarMovimento(){
+        let that = this
         document.addEventListener('mousedown',(event)=>{
             if(event.target.classList.contains('pecas')){
-                document.addEventListener('mousemove', this.follow,false);
-                console.log(draggedToken)
+                document.addEventListener('mousemove', this.follow(event,that),false);
             }
-        },false);
+        });
     
         document.addEventListener('mouseup',(event)=>{
-            document.removeEventListener('mousemove', this.follow);
-    
-            if(!draggedToken){
-                return
+            if(this.draggedToken){
+                console.log('dropando peca')
+                document.removeEventListener('mousemove', this.follow(event,that));
+        
+                this.findColor(event.clientX, event.clientY);
+                
+                if(this.closestNodeId){
+                    this.placePecaNode()
+                    this.place(this.closestNodeId)
+                }
+        
+                this.draggedToken = null;
+                this.closestNodeId = null;
             }
-            
-            this.findColor(event.clientX, event.clientY);
-            
-            if(this.closeNode){
-                this.placePecaNode(draggedToken.id,this.closeNode)
-                this.place(this.closeNode,draggedToken.id)
-            }
-    
-            draggedToken = null;
-            this.closeNode = null;
-    
-        },false);
+        });
     }
 
-    placePecaNode(peca,nodeid){
-        let token = document.getElementById(peca)
-        let node = document.getElementById(nodeid)
+    placePecaNode(){
+        let token = document.getElementById(this.draggedToken.id)
+        let node = document.getElementById(this.closestNodeId)
 
         let x = node.getBoundingClientRect().x + node.clientHeight / 2 - token.clientHeight / 2
         let y = node.getBoundingClientRect().y + node.clientHeight / 2 - token.clientHeight / 2
@@ -77,63 +76,71 @@ class Tabuleiro {
         token.style.top = y + 'px'
     }
 
-    place(position,id){
-        let peca = this.findByIdPecas(id)
-        let oldNode = this.findByIdTabuleiro(peca.position)
-        if(oldNode) oldNode.isOccupied = false
+    place(position){
+        let peca = this.findByIdPecas(this.draggedToken.id)
+        if (peca.position){
+            let oldNode = this.findByIdTabuleiro(peca.position)
+            if(oldNode) oldNode.isOccupied = false
+        }
         let newNode = this.findByIdTabuleiro(position)
         newNode.isOccupied = true 
         peca.position = position
     }
 
-    follow(e){
+    follow(e,that){
         let delX = 0;
         let delY = 0;
 
-        if(!draggedToken && e.target.classList.contains('pecas')){
-            draggedToken = e.target;
-            delX = draggedToken.getBoundingClientRect().x - e.clientX;
-            delY = draggedToken.getBoundingClientRect().y - e.clientY;
+        if(!this.draggedToken && e.target.classList.contains('pecas')){
+            this.draggedToken = e.target;
+            delX = this.draggedToken.getBoundingClientRect().x - e.clientX;
+            delY = this.draggedToken.getBoundingClientRect().y - e.clientY;
         }
 
         let x = e.clientX;
         let y = e.clientY;
 
-        draggedToken.style.left = x + delX + 'px';
-        draggedToken.style.top = y + delY + 'px';
+        this.draggedToken.style.left = x + delX + 'px';
+        this.draggedToken.style.top = y + delY + 'px';
 
-        this.findColor(x,y);
+        that.findColor(x,y);
     }
 
     findColor(x,y){
-        let {closestNode, minDistance} = this.getAvailableNodesForToken().reduce(({ closestNode, minDistance }, node) => {
-            let nodePosition = document.getElementById(node.id).getBoundingClientRect()
-            let distance = Math.sqrt( ( x - nodePosition.x )** 2 + 
-                                        ( y - nodePosition.y )** 2 )
-            if (distance < minDistance){
-                return { closestNode: node, minDistance: distance }
-            }else{
-                return { closestNode: closestNode, minDistance: minDistance }
-            }
-        }, { closestNode: null, minDistance: Infinity })
+        let peca = this.findByIdPecas(this.draggedToken.id)
+
+        let availableToken = this.getAvailableNodesForToken(peca) ?? []
+        let {closestNode, minDistance} = availableToken.reduce(({ closestNode, minDistance }, node) => {
+                let nodePosition = document.getElementById(node.id).getBoundingClientRect()
+                let distance = Math.sqrt( ( x - nodePosition.x )** 2 + 
+                                            ( y - nodePosition.y )** 2 )
+                if (distance < minDistance){
+                    return { closestNode: node, minDistance: distance }
+                }else{
+                    return { closestNode: closestNode, minDistance: minDistance }
+                }
+            }, { closestNode: null, minDistance: Infinity })
 
         if(minDistance > 200){
-            this.decolourNode(this.closeNode)
-            this.closeNode = null
+            console.log('colorindo/')
+            this.decolourNode(this.closestNodeId)
+            this.closestNodeId = null
             return false
         }
 
-        if(closestNode.id != this.closeNode) {
-            if(this.closeNode) this.decolourNode(this.closeNode)
+        if(closestNode.id != this.closestNodeId) {
+            console.log('descolorindo/')
+            if(this.closestNodeId) this.decolourNode(this.closestNodeId)
 
-            this.closeNode = closestNode.id
-            this.colourNode(this.closeNode)
+            this.closestNodeId = closestNode.id
+            this.colourNode(this.closestNodeId)
             return true
         }
+        console.log('final')
     }
-
-    getAvailableNodesForToken(){
-        if(!this.position || this.flyable){
+    
+    getAvailableNodesForToken(peca){
+        if(!peca.position || peca.flyable){
             return this.findUnoccupied()
         }
     }
@@ -149,11 +156,15 @@ class Tabuleiro {
     }
 
     findByIdTabuleiro(id){
-        return this.tabuleiro.find(({ e }) => e.id === id)
+        return this.tabuleiro.find((e) => {
+            return e.id === id
+        })
     }
 
     findByIdPecas(id){
-        return this.players1.player.peca.concat(this.players2.player.peca).find(e=>e.id == id)
+        return [...this.players1.player.pecas, ...this.players2.player.pecas].find(e=>{
+            return e.id == id
+        })
     }
 
     findUnoccupied(){

@@ -12,7 +12,7 @@ class Player {
 
     createPlayers(id){
         if (id <= 8){
-            let token = new Pecas(id+'-'+this.player.id, this.player);
+            let token = new Pecas(id+'-'+this.player.id, this.player.id);
 
             this.player.pecas.push(token);
             this.createPlayers(++id);
