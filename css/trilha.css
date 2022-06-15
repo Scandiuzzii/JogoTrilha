@@ -1,0 +1,128 @@
+.jogo {
+    width: 750px;
+    height: 750px;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: beige;
+    background-image: url("../img/bg_trilha.png");
+    border: 6px solid black;
+    border-radius: 2px;
+    display: grid;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+}
+
+.jogo>div {
+    border-radius: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circuloTabuleiro {
+    background: beige;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 3px solid black;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.A7 {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.D7 {
+    grid-area: 1 / 4 / 2 / 5;
+}
+
+.G7 {
+    grid-area: 1 / 7 / 2 / 8;
+}
+
+.B6 {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.D6 {
+    grid-area: 2 / 4 / 3 / 5;
+}
+
+.F6 {
+    grid-area: 2 / 6 / 3 / 7;
+}
+
+.C5 {
+    grid-area: 3 / 3 / 4 / 4;
+}
+
+.D5 {
+    grid-area: 3 / 4 / 4 / 5;
+}
+
+.E5 {
+    grid-area: 3 / 5 / 4 / 6;
+}
+
+.A4 {
+    grid-area: 4 / 1 / 5 / 2;
+}
+
+.B4 {
+    grid-area: 4 / 2 / 5 / 3;
+}
+
+.C4 {
+    grid-area: 4 / 3 / 5 / 4;
+}
+
+.E4 {
+    grid-area: 4 / 5 / 5 / 6;
+}
+
+.F4 {
+    grid-area: 4 / 6 / 5 / 7;
+}
+
+.G4 {
+    grid-area: 4 / 7 / 5 / 8;
+}
+
+.C3 {
+    grid-area: 5 / 3 / 6 / 4;
+}
+
+.D3 {
+    grid-area: 5 / 4 / 6 / 5;
+}
+
+.E3 {
+    grid-area: 5 / 5 / 6 / 6;
+}
+
+.B2 {
+    grid-area: 6 / 2 / 7 / 3;
+}
+
+.D2 {
+    grid-area: 6 / 4 / 7 / 5;
+}
+
+.F2 {
+    grid-area: 6 / 6 / 7 / 7;
+}
+
+.A1 {
+    grid-area: 7 / 1 / 8 / 2;
+}
+
+.D1 {
+    grid-area: 7 / 4 / 8 / 5;
+}
+
+.G1 {
+    grid-area: 7 / 7 / 8 / 8;
+}
