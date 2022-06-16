@@ -1,19 +1,21 @@
 .jogo {
-    width: 750px;
+    width: 751px;
     height: 750px;
     margin: 0 auto;
     padding: 15px;
     background-color: beige;
-    background-image: url("../img/bg_trilha.png");
+    background-image: url("../img/tabuleiro.png");
     border: 6px solid black;
     border-radius: 2px;
     display: grid;
-    grid-column-gap: 16px;
-    grid-row-gap: 16px;
+    grid-column-gap: 15px;
+    grid-row-gap: 12px;
+    background-repeat: no-repeat;
+    background-size: 770px 760px;
 }
 
 .jogo>div {
-    border-radius: 1000px;
+    border-radius: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,6 +35,7 @@
 
 .A7 {
     grid-area: 1 / 1 / 2 / 2;
+    padding-left: 10px;
 }
 
 .D7 {

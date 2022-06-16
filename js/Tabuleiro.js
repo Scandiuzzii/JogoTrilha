@@ -6,7 +6,7 @@ class Tabuleiro {
         this.indexAnterior = 0;
         this.jogadas = 0;
         this.jogadores = {
-            opcoes: [new Jogador("blue"), new Jogador("red")],
+            opcoes: [new Jogador("blue"), new Jogador("green")],
             jogadorAtual: 0,
             trocar: function() {
                 this.jogadorAtual = Number(!this.jogadorAtual)
@@ -25,8 +25,8 @@ class Tabuleiro {
             new Man("B6", ''), new Man("D6", ''), new Man("F6", ''),
 
             new Man("C5", ''), new Man("D5", ''), new Man("E5", ''),
-            new Man("A4", ''), new Man("B4", ''), new Man("C4", ''), 
-            
+            new Man("A4", ''), new Man("B4", ''), new Man("C4", ''),
+
             new Man("E4", ''), new Man("F4", ''), new Man("G4", ''),
             new Man("C3", ''), new Man("D3", ''), new Man("E3", ''),
 
@@ -52,28 +52,28 @@ class Tabuleiro {
             [0, 1, 2]
         ];
         this.movimentos_possiveis = [
-            [1, 9], 
+            [1, 9],
             [0, 2, 4],
             [1, 14],
-            [4, 10], 
+            [4, 10],
             [1, 3, 5, 7],
             [4, 13],
-            [7, 11], 
+            [7, 11],
             [4, 6, 8],
             [7, 12],
-            [0, 10, 21], 
-            [3, 9, 11, 18], 
+            [0, 10, 21],
+            [3, 9, 11, 18],
             [6, 10, 15],
-            [8, 13, 17], 
-            [5, 12, 14, 20], 
+            [8, 13, 17],
+            [5, 12, 14, 20],
             [2, 13, 23],
-            [11, 16], 
-            [15, 17, 19], 
+            [11, 16],
+            [15, 17, 19],
             [12, 16],
-            [10, 19], 
-            [16, 18, 20, 22], 
+            [10, 19],
+            [16, 18, 20, 22],
             [13, 19],
-            [9, 22], 
+            [9, 22],
             [19, 21, 23],
             [14, 22]
         ];
