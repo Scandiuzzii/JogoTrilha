@@ -11,10 +11,12 @@
     <h1 id="title">Jogo Trilha </h1>
     <div class="jogo"></div>
 
-    <script src="js/trilha.js"></script>
+    <script src="js/Jogador.js"></script>
+    <script src="js/Man.js"></script>
+    <script src="js/Tabuleiro.js"></script>
 
     <script>
-        const trilha = new Trilha(document.querySelector('.jogo'));
+        const trilha = new Tabuleiro(document.querySelector('.jogo'));
         trilha.jogar();
     </script>
 </body>

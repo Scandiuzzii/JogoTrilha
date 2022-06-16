@@ -13,11 +13,9 @@ class Jogador{
         }
         return this.simbolo
     }
+
     fez_moinho(){
         this.remover = true
         return ''
     }
 }
-
-const jogador_teste = new Jogador("blue");
-module.exports = jogador_teste
